@@ -51,13 +51,18 @@ const writeTimeReport = (event) => {
 	tdEndTime.textContent = endTime.value;
 	tr.append(tdEndTime);
 
-	let tdHourDiff = document.createElement("td");
-	tdHourDiff.textContent = ("0" + timeDifference.hour).slice(-2) + "H";
-	tr.append(tdHourDiff);
+	let tdTimeDiff = document.createElement("td");
+	tdTimeDiff.textContent =
+		("0" + timeDifference.hour).slice(-2) +
+		"H" +
+		" " +
+		("0" + timeDifference.min).slice(-2) +
+		"M";
 
-	let tdMinDiff = document.createElement("td");
-	tdMinDiff.textContent = ("0" + timeDifference.min).slice(-2) + "M";
-	tr.append(tdMinDiff);
+	tr.append(tdTimeDiff);
+
+	// let tdMinDiff = document.createElement("td");
+	// tdMinDiff.textContent = tr.append(tdMinDiff);
 
 	tbody.append(tr);
 
@@ -65,6 +70,7 @@ const writeTimeReport = (event) => {
 	projectCodeName.value = "";
 	startTime.value = "";
 	endTime.value = "";
+	projectCodeName.focus();
 };
 
 form.addEventListener("submit", writeTimeReport);
