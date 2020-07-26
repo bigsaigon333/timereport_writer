@@ -1,5 +1,38 @@
+<<<<<<< HEAD
 h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20;
     
 }
+=======
+header {
+	text-align: center;
+	font-size: 1.5em;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+article {
+	text-align: center;
+}
+
+table {
+	display: inline;
+	font-size: 1.2em;
+}
+table * {
+	margin: 3px;
+}
+#projectCode {
+	width: 150px;
+	height: 30px;
+}
+#startTime,
+#endTime {
+	width: 80px;
+	height: 30px;
+}
+
+#submitButton {
+	height: 30px;
+}
+>>>>>>> Centralizing
