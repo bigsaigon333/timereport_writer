@@ -1,54 +1,43 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<link rel="stylesheet" href="style.css" />
 		<title>
 			Time Report 기록기
 		</title>
-
-		<link rel="stylesheet" type="text/css" , href="basic.css" />
 	</head>
 	<body>
 		<header>
 			<h1>Time Report 기록기</h1>
 		</header>
-		<article>
-			<table id="timeReportList">
-				<thead>
-					<tr>
-						<th>Project Code명</th>
-						<th>시작시간</th>
-						<th>종료시간</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<form id="inputForm">
-							<td>
-								<input
-									type="text"
-									id="projectCode"
-									name="projectCode"
-									required
-								/>
-							</td>
-
-							<td>
-								<input type="time" id="startTime" name="startTime" required />
-							</td>
-
-							<td>
-								<input type="time" id="endTime" name="endTime" required />
-							</td>
-
-							<td>
-								<input type="submit" id="submitButton" value="Submit" />
-							</td>
-						</form>
-					</tr>
-				</tbody>
-			</table>
-		</article>
+		<form id="inputForm">
+			<div class="container" id="projectCodeContainer">
+				<input
+					type="text"
+					id="projectCodeInput"
+					name="projectCode"
+					required
+					placeholder="Project Code명"
+				/>
+			</div>
+			<div class="container">
+				<div>
+					<label class="timeLabel" for="startTime">시작시간</label>
+				</div>
+				<input type="time" id="startTime" name="startTime" required />
+			</div>
+			<div class="container">
+				<label class="timeLabel" for="endTime">종료시간</label>
+				<input type="time" id="endTime" name="endTime" required />
+			</div>
+			<div class="container">
+				<input class="submitBtn" type="submit" value="Submit" />
+			</div>
+		</form>
+		<main class="main">
+			<ul class="js-timereport-ul timereport"></ul>
+		</main>
 		<script src="timereport.js"></script>
 	</body>
 </html>

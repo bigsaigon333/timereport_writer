@@ -1,0 +1,73 @@
+body {
+	max-width: 1000px;
+	margin: 0 auto;
+	font-family: Sans-serif;
+}
+
+header > h1 {
+	padding: 30px 0px;
+	text-align: center;
+	font-size: 60px;
+	background-color: #dddddd;
+}
+
+form {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	padding: 10px 30px;
+}
+
+form input {
+	will-change: auto;
+	color: rgb(140, 140, 140);
+	border: none;
+	border-bottom: 1px solid rgb(180, 180, 180);
+	font-size: 24px;
+	padding: 10px;
+	transition: all 0.25s ease-in-out;
+}
+
+form input:focus {
+	outline: none;
+	border-bottom: 2px solid rgb(100, 100, 100);
+	color: rgb(100, 100, 100);
+}
+
+.container {
+	margin: 0 auto;
+}
+
+.timeLabel {
+	display: block;
+	text-align: center;
+	font-size: 20px;
+	color: rgb(60, 60, 60);
+	/* font-weight: 600; */
+}
+
+#projectCodeInput {
+	/* height: 60px; */
+	font-size: 30px;
+	padding: 10px;
+}
+
+.submitBtn {
+	display: none;
+}
+
+.timereport {
+	padding: 10px 30px;
+	list-style: none;
+}
+
+.timereport__li {
+	/* display: flex;
+	justify-content: space-between; */
+}
+
+.timereport-row {
+	display: flex;
+	justify-content: space-between;
+}
