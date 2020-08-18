@@ -8,6 +8,13 @@ const createView = (timeReportItem) => {
 	const startTimeSpan = document.createElement("span");
 	const endTimeSpan = document.createElement("span");
 	const periodSpan = document.createElement("span");
+	console.log("inside createView");
+	console.log(timeReportItem);
+
+	projectCodeSpan.innerHTML = timeReportItem.projectCodeName;
+	startTimeSpan.innerHTML = timeReportItem.startTime;
+	endTimeSpan.innerHTML = timeReportItem.endTime;
+	periodSpan.innerHTML = getFormattedPeriod(timeReportItem.period);
 
 	const reviseBtnHandler = (event) => {
 		projectCodeInput.value = projectCodeSpan.innerText;
@@ -40,9 +47,9 @@ const createView = (timeReportItem) => {
 	reviseBtn.addEventListener("click", reviseBtnHandler);
 	deleteBtn.innerText = "delete";
 	deleteBtn.addEventListener("click", deleteBtnHandler);
-	projectCodeSpan.innerText = projectCodeInput.value;
-	startTimeSpan.innerText = startTimeInput.value;
-	endTimeSpan.innerText = endTimeInput.value;
-	periodSpan.innerText = getFormattedPeriod(timeReportItem.period);
+	// projectCodeSpan.innerText = projectCodeInput.value;
+	// startTimeSpan.innerText = startTimeInput.value;
+	// endTimeSpan.innerText = endTimeInput.value;
+	// periodSpan.innerText = getFormattedPeriod(timeReportItem.period);
 	return li;
 };
