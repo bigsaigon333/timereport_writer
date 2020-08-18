@@ -54,7 +54,10 @@ form input:focus {
 }
 
 .submitBtn {
-	display: none;
+	/* display: none; */
+	border-radius: 10px;
+	font-weight: 600;
+	color: rgb(30, 30, 30);
 }
 
 .timereport {
