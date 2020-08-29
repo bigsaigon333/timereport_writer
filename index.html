@@ -3,9 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<link rel="stylesheet" href="style.css" />
-		<title>
-			Time Report 기록기
-		</title>
+		<title>Time Report 기록기</title>
 	</head>
 	<body>
 		<header>
@@ -32,16 +30,13 @@
 				<input type="time" id="endTime" name="endTime" required />
 			</div>
 			<div class="container">
-				<input class="submitBtn" type="submit" value="Submit" />
+				<input class="btn" type="submit" value="Submit" />
+				<input class="btn" type="button" value="Clear" />
 			</div>
 		</form>
 		<main class="main">
 			<ul class="js-timereport-ul timereport"></ul>
 		</main>
-		<script defer src="loadElements.js"></script>
-		<script defer src="period.js"></script>
-		<script defer src="view.js"></script>
-		<script defer src="timereport.js"></script>
-		<script defer src="init.js"></script>
+		<script type="module" src="init.js"></script>
 	</body>
 </html>

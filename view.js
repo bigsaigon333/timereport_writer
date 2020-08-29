@@ -1,4 +1,13 @@
-const createView = (timeReportItem) => {
+import { getFormattedPeriod, getFormattedTime } from "./function.js";
+import {
+	timeReportList,
+	projectCodeInput,
+	startTimeInput,
+	endTimeInput,
+} from "./init.js";
+import { deleteOneItemFromLocalStorage, KEY } from "./model.js";
+
+const getItemView = (listItem) => {
 	const li = document.createElement("li");
 	const div = document.createElement("div");
 	const btnDiv = document.createElement("div");
@@ -8,33 +17,33 @@ const createView = (timeReportItem) => {
 	const startTimeSpan = document.createElement("span");
 	const endTimeSpan = document.createElement("span");
 	const periodSpan = document.createElement("span");
-	console.log("inside createView");
-	console.log(timeReportItem);
 
-	projectCodeSpan.innerHTML = timeReportItem.projectCodeName;
-	startTimeSpan.innerHTML = timeReportItem.startTime;
-	endTimeSpan.innerHTML = timeReportItem.endTime;
-	periodSpan.innerHTML = getFormattedPeriod(timeReportItem.period);
+	projectCodeSpan.innerHTML = listItem.projectCodeName;
+	startTimeSpan.innerHTML = getFormattedTime(listItem.startTime);
+	endTimeSpan.innerHTML = getFormattedTime(listItem.endTime);
+	periodSpan.innerHTML = getFormattedPeriod(listItem.period);
 
 	const reviseBtnHandler = (event) => {
 		projectCodeInput.value = projectCodeSpan.innerText;
 		startTimeInput.value = startTimeSpan.innerText;
 		endTimeInput.value = endTimeSpan.innerText;
+
 		deleteBtnHandler(event);
 	};
 
 	const deleteBtnHandler = (event) => {
-		const deleteItemId = li.getAttribute("id");
-		console.log("[delete] li removed: ", deleteItemId);
-		localStorage.removeItem(deleteItemId);
-		li.remove();
+		let delItemDate = event.target.dataset.date;
+
+		deleteOneItemFromLocalStorage(Number(delItemDate));
+		render();
 	};
 
-	li.setAttribute("id", timeReportItem.id);
 	li.appendChild(div);
 	div.appendChild(btnDiv);
 	btnDiv.appendChild(reviseBtn);
 	btnDiv.appendChild(deleteBtn);
+	reviseBtn.dataset.date = listItem.date;
+	deleteBtn.dataset.date = listItem.date;
 	div.appendChild(projectCodeSpan);
 	div.appendChild(startTimeSpan);
 	div.appendChild(endTimeSpan);
@@ -47,9 +56,17 @@ const createView = (timeReportItem) => {
 	reviseBtn.addEventListener("click", reviseBtnHandler);
 	deleteBtn.innerText = "delete";
 	deleteBtn.addEventListener("click", deleteBtnHandler);
-	// projectCodeSpan.innerText = projectCodeInput.value;
-	// startTimeSpan.innerText = startTimeInput.value;
-	// endTimeSpan.innerText = endTimeInput.value;
-	// periodSpan.innerText = getFormattedPeriod(timeReportItem.period);
+
 	return li;
+};
+
+export const render = () => {
+	timeReportList.querySelectorAll("*").forEach((n) => n.remove());
+	const savedList = JSON.parse(localStorage.getItem(KEY));
+	if (savedList === null) return;
+
+	savedList.forEach((v, i) => {
+		let li = getItemView(v);
+		timeReportList.appendChild(li);
+	});
 };
