@@ -2,15 +2,21 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
+		<script
+			src="https://kit.fontawesome.com/f70858e33e.js"
+			crossorigin="anonymous"
+		></script>
+
 		<title>Time Report 기록기</title>
 	</head>
 	<body>
 		<header>
-			<h1>Time Report 기록기</h1>
+			<h1 class="title">Time Report 기록기</h1>
 		</header>
 		<form id="inputForm">
-			<div class="container" id="projectCodeContainer">
+			<div class="form-container container-1" id="projectCodeContainer">
 				<input
 					type="text"
 					id="projectCodeInput"
@@ -19,17 +25,17 @@
 					placeholder="Project Code명"
 				/>
 			</div>
-			<div class="container">
+			<div class="form-container container-2">
 				<div>
 					<label class="timeLabel" for="startTime">시작시간</label>
 				</div>
 				<input type="time" id="startTime" name="startTime" required />
 			</div>
-			<div class="container">
+			<div class="form-container container-3">
 				<label class="timeLabel" for="endTime">종료시간</label>
 				<input type="time" id="endTime" name="endTime" required />
 			</div>
-			<div class="container">
+			<div class="form-container container-4">
 				<input class="btn" type="submit" value="Submit" />
 				<input class="btn" type="button" value="Clear" />
 			</div>

@@ -11,8 +11,8 @@ const getItemView = (listItem) => {
 	const li = document.createElement("li");
 	const div = document.createElement("div");
 	const btnDiv = document.createElement("div");
-	const reviseBtn = document.createElement("button");
-	const deleteBtn = document.createElement("button");
+	const reviseBtn = document.createElement("i");
+	const deleteBtn = document.createElement("i");
 	const projectCodeSpan = document.createElement("span");
 	const startTimeSpan = document.createElement("span");
 	const endTimeSpan = document.createElement("span");
@@ -52,9 +52,10 @@ const getItemView = (listItem) => {
 	li.classList.add("timereport__li");
 	div.classList.add("timereport-row");
 
-	reviseBtn.innerText = "revise";
+	reviseBtn.classList.add("fas", "fa-eraser", "fa-2x");
 	reviseBtn.addEventListener("click", reviseBtnHandler);
-	deleteBtn.innerText = "delete";
+
+	deleteBtn.classList.add("fas", "fa-trash", "fa-2x");
 	deleteBtn.addEventListener("click", deleteBtnHandler);
 
 	return li;
